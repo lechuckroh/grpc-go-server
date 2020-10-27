@@ -1,0 +1,7 @@
+/build
+/app
+*.exe
+/vendor
+config.development.yml
+.idea
+.run

@@ -1,0 +1,4 @@
+grpc:
+  port: 9090
+http:
+  port: 9080
