@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "proto/hello";
+option go_package = "pb/hellopb";
 
 import "google/api/annotations.proto";
 import "google/protobuf/timestamp.proto";

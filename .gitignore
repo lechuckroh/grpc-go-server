@@ -1,6 +1,7 @@
 /build
 /app
 *.exe
+/pb
 /vendor
 config.development.yml
 .idea

@@ -12,10 +12,8 @@ $ mkdir $HOME/go
 $ export GOPATH=$HOME/go
 $ export PATH=$GOPATH/bin:$PATH
 
-# install protobuf packages
-$ go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
-$ go get github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
-$ go get github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
+# generate *.go from *.proto
+$ ./progo-gen.sh
 
 # install project dependencies
 $ go get

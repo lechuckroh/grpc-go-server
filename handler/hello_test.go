@@ -3,13 +3,13 @@ package handler
 import (
 	"context"
 	"github.com/google/go-cmp/cmp"
-	"github.com/lechuckroh/grpc-go-server/proto/hello"
+	"github.com/lechuckroh/grpc-go-server/pb/hellopb"
 	"testing"
 )
 
 func TestHello_Call(t *testing.T) {
 	h := Hello{}
-	req := hello.CallRequest{Name: "world"}
+	req := hellopb.CallRequest{Name: "world"}
 	resp, err := h.Call(context.Background(), &req)
 	if err != nil {
 		t.Error(err)

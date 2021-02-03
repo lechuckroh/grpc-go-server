@@ -3,10 +3,10 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/grpc-ecosystem/grpc-gateway/runtime"
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/lechuckroh/grpc-go-server/config"
 	"github.com/lechuckroh/grpc-go-server/handler"
-	"github.com/lechuckroh/grpc-go-server/proto/hello"
+	"github.com/lechuckroh/grpc-go-server/pb/hellopb"
 	"google.golang.org/grpc"
 	"log"
 	"net"
@@ -26,7 +26,7 @@ func runGateway(cfg *config.APIConfig) {
 	opts := []grpc.DialOption{grpc.WithInsecure()}
 
 	grpcServerEndpoint := fmt.Sprintf("localhost:%d", cfg.GRPC.Port)
-	if err := hello.RegisterHelloGwFromEndpoint(ctx, mux, grpcServerEndpoint, opts); err != nil {
+	if err := hellopb.RegisterHelloGwFromEndpoint(ctx, mux, grpcServerEndpoint, opts); err != nil {
 		log.Fatal("failed to register hello gateway handlers", err)
 	}
 
@@ -48,7 +48,7 @@ func main() {
 	}
 
 	grpcServer := grpc.NewServer()
-	hello.RegisterHelloServer(grpcServer, &handler.Hello{})
+	hellopb.RegisterHelloServer(grpcServer, &handler.Hello{})
 
 	go runGateway(cfg)
 
