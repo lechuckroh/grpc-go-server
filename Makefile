@@ -14,6 +14,11 @@ build:
 build-linux64-static:
 	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO111MODULE=on go build -mod=vendor -o $(BUILD_DIR)/$(BINARY) *.go
 
+run-server: build
+	./$(BINARY)
+run-client: build
+	RUN_MODE=client ./$(BINARY)
+
 .PHONY: test
 test:
 	go test -v ./... -cover

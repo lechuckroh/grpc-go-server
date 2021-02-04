@@ -23,7 +23,10 @@ $ go mod vendor
 $ make build
 
 # run server
-$ ./api-service
+$ ./app
+
+# run client
+$ RUN_MODE=client ./app
 
 # HTTP call
 $ curl http://localhost:9080/healthcheck
